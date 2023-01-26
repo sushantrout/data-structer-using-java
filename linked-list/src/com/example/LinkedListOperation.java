@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class LinkedListOperation {
 
 	public static Scanner SCANNER = new Scanner(System.in);
-	public static Node head = null;
+	public static Node root = null;
 
 	public static void main(String[] args) {
 
@@ -16,32 +16,32 @@ public class LinkedListOperation {
 			switch (value) {
 			case 1: {
 				String data = insertNodeData();
-				if (head == null) {
-					head = insertNode(data, head);
+				if (root == null) {
+					root = insertNode(data, root);
 				} else {
-					insertNode(data, head);
+					insertNode(data, root);
 				}
 				break;
 			}
 			case 2: {
 				String data = insertNodeData();
-				head = insertNodeAtNth(data, head);
+				root = insertNodeAtNth(data, root);
 				break;
 			}
 			case 3: {
-				head = delete(head);
+				root = delete(root);
 				break;
 			}
 			case 5: {
-				head = reversh(head);
+				root = reversh(root);
 				break;
 			}
 			case 6: {
-				revershUsingRecurssion(head);
+				revershUsingRecurssion(root);
 				break;
 			}
 			case 7: {
-				travershNode(head);
+				travershNode(root);
 				System.out.println();
 				break;
 			}
@@ -52,7 +52,6 @@ public class LinkedListOperation {
 			}
 			}
 		} while (value != 8);
-
 	}
 
 	public static Node insertNode(String value, Node head) {
@@ -139,7 +138,7 @@ public class LinkedListOperation {
 		
 		Node q = node.next;
 		while (q == null) {
-			head = node;
+			root = node;
 			return;
 		}
 		revershUsingRecurssion(q);
