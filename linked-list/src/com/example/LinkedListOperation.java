@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class LinkedListOperation {
 
 	public static Scanner SCANNER = new Scanner(System.in);
+	public static Node head = null;
 
 	public static void main(String[] args) {
-		Node head = null;
 
 		int value = 0;
 		do {
@@ -37,17 +37,21 @@ public class LinkedListOperation {
 				break;
 			}
 			case 6: {
+				revershUsingRecurssion(head);
+				break;
+			}
+			case 7: {
 				travershNode(head);
 				System.out.println();
 				break;
 			}
-			case 7: {
+			case 8: {
 				SCANNER.close();
 				System.out.println("Thank you");
 				System.exit(200);
 			}
 			}
-		} while (value != 7);
+		} while (value != 8);
 
 	}
 
@@ -131,14 +135,28 @@ public class LinkedListOperation {
 		return prev;
 	}
 
+	public static void revershUsingRecurssion(Node node) {
+		
+		Node q = node.next;
+		while (q == null) {
+			head = node;
+			return;
+		}
+		revershUsingRecurssion(q);
+		q.next = node;
+		node.next = null;
+		
+	}
+	
 	public static void showMessage() {
 		System.out.print("1 : Insert\t");
 		System.out.print("2 : Insert At Position\t");
 		System.out.print("3 : Delete\t");
 		System.out.print("4 : Update\t");
 		System.out.print("5 : Reversh\t");
-		System.out.print("6 : Show\t");
-		System.out.println("7 : Exit");
+		System.out.print("6 : Reversh(Recurssion)\t");
+		System.out.print("7 : Show\t");
+		System.out.println("8 : Exit");
 		System.out.print("Chose option: ");
 	}
 
