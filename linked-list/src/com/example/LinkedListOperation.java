@@ -29,21 +29,25 @@ public class LinkedListOperation {
 				break;
 			}
 			case 3: {
-				delete(head);
+				head = delete(head);
 				break;
 			}
 			case 5: {
+				head = reversh(head);
+				break;
+			}
+			case 6: {
 				travershNode(head);
 				System.out.println();
 				break;
 			}
-			case 6: {
+			case 7: {
 				SCANNER.close();
 				System.out.println("Thank you");
 				System.exit(200);
 			}
 			}
-		} while (value != 6);
+		} while (value != 7);
 
 	}
 
@@ -67,13 +71,18 @@ public class LinkedListOperation {
 			return new Node(value, null);
 		} else {
 			int i = 0;
-			while (head.next != null) {
-				if (i == position - 1) {
-					Node node = new Node(value, head.next);
-					head.next = node;
-					break;
+			if (position == 1) {
+				Node node = new Node(value, head);
+				return node;
+			} else {
+				while (head.next != null) {
+					if (i == position - 1) {
+						Node node = new Node(value, head.next);
+						head.next = node;
+						break;
+					}
+					i++;
 				}
-				i++;
 			}
 		}
 		return head;
@@ -84,7 +93,7 @@ public class LinkedListOperation {
 		int position = SCANNER.nextInt();
 		if (position == 1) {
 			Node next = head.next;
-			head = null;
+			head.next = null;
 			return next;
 		} else {
 			Node node = head;
@@ -109,13 +118,27 @@ public class LinkedListOperation {
 		travershNode(head.next);
 	}
 
+	public static Node reversh(Node node) {
+		Node current = node;
+		Node next = null;
+		Node prev = null;
+		while (current != null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		return prev;
+	}
+
 	public static void showMessage() {
 		System.out.print("1 : Insert\t");
 		System.out.print("2 : Insert At Position\t");
 		System.out.print("3 : Delete\t");
 		System.out.print("4 : Update\t");
-		System.out.print("5 : Show\t");
-		System.out.println("6 : Exit");
+		System.out.print("5 : Reversh\t");
+		System.out.print("6 : Show\t");
+		System.out.println("7 : Exit");
 		System.out.print("Chose option: ");
 	}
 
