@@ -2,6 +2,8 @@ package com.example;
 
 import java.util.Scanner;
 
+import com.example.model.Node;
+
 public class DoubleLinkedListImplemntation {
 	public static Scanner SCANNER = new Scanner(System.in);
 	public static Node root = null;

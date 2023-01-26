@@ -1,8 +1,8 @@
-package com.example;
+package com.example.model;
 
 public class Node {
-	String data;
-	Node next;
+	public String data;
+	public Node next;
 
 	public Node(String data, Node next) {
 		this.data = data;

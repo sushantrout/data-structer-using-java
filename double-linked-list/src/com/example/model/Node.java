@@ -1,9 +1,9 @@
-package com.example;
+package com.example.model;
 
 public class Node {
-	String data;
-	Node next;
-	Node prev;
+	public String data;
+	public Node next;
+	public Node prev;
 	public Node(String data, Node next, Node prev) {
 		super();
 		this.data = data;
