@@ -2,6 +2,8 @@ package com.example;
 
 import java.util.Scanner;
 
+import com.example.model.Node;
+
 public class LinkedListOperation {
 
 	public static Scanner SCANNER = new Scanner(System.in);
