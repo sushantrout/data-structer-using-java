@@ -19,13 +19,15 @@ public class EachLavelHighestValueTest {
 
 		traversh(root);
 
-		int findMaxAtLabel = findMaxAtLabel(root);
-		System.out.println("Height: " + findMaxAtLabel);
-
+		int height = findHeightOfTree(root);
+		System.out.println("Height: " + height);
+		System.out.println();
+		
 		findMaxAtEachLavel(root);
 
 		int findMaxAtEachLavelForBST = findMaxAtEachLavelForBST(root, 0);
-		System.out.println(findMaxAtEachLavelForBST);
+		System.out.println("Max: " + findMaxAtEachLavelForBST);
+		System.out.println();
 	}
 
 	private static int findMaxAtEachLavelForBST(Node root, int max) {
@@ -66,12 +68,12 @@ public class EachLavelHighestValueTest {
 		}
 	}
 
-	private static int findMaxAtLabel(Node root) {
+	private static int findHeightOfTree(Node root) {
 		if (root == null) {
 			return 0;
 		} else {
-			int leftHeight = findMaxAtLabel(root.left);
-			int rightHeight = findMaxAtLabel(root.right);
+			int leftHeight = findHeightOfTree(root.left);
+			int rightHeight = findHeightOfTree(root.right);
 			return (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
 		}
 	}
