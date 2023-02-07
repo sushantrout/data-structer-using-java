@@ -18,6 +18,7 @@ public class EachLavelHighestValueTest {
 		inserToTree(root, 10);
 
 		traversh(root);
+		System.out.println();
 
 		int height = findHeightOfTree(root);
 		System.out.println("Height: " + height);
@@ -25,16 +26,31 @@ public class EachLavelHighestValueTest {
 		
 		findMaxAtEachLavel(root);
 
-		int findMaxAtEachLavelForBST = findMaxAtEachLavelForBST(root, 0);
-		System.out.println("Max: " + findMaxAtEachLavelForBST);
 		System.out.println();
+		int findMaxAtEachLavelForBST = findMaxValueOfBST(root, 0);
+		System.out.println("Max: " + findMaxAtEachLavelForBST);
+		
+		System.out.println();
+		int findMaxValueOfAnyBinaryTree = findMaxValueOfAnyBinaryTree(root, 0);
+		System.out.println("max for any tree: " + findMaxValueOfAnyBinaryTree);
 	}
 
-	private static int findMaxAtEachLavelForBST(Node root, int max) {
+	private static int findMaxValueOfAnyBinaryTree(Node root, int max) {
 		if (root == null) {
 			return max;
 		} else {
-			max = findMaxAtEachLavelForBST(root.right, root.data);
+			int leftValue = findMaxValueOfBST(root.left, root.data);
+			int rightValue = findMaxValueOfBST(root.right, root.data);
+			max = leftValue > rightValue ? rightValue : rightValue;
+		}
+		return max;
+	}
+
+	private static int findMaxValueOfBST(Node root, int max) {
+		if (root == null) {
+			return max;
+		} else {
+			max = findMaxValueOfBST(root.right, root.data);
 		}
 		return max;
 	}
