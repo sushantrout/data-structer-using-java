@@ -2,8 +2,7 @@ package com.tech.model;
 
 public class Node {
 	public int data;
-	public Node left;
-	public Node right;
+	public Node leftNode, rightNode;
 
 	public int getData() {
 		return data;
@@ -14,31 +13,31 @@ public class Node {
 	}
 
 	public Node getLeftNode() {
-		return left;
+		return leftNode;
 	}
 
 	public void setLeftNode(Node leftNode) {
-		this.left = leftNode;
+		this.leftNode = leftNode;
 	}
 
 	public Node getRightNode() {
-		return right;
+		return rightNode;
 	}
 
 	public void setRightNode(Node rightNode) {
-		this.right = rightNode;
+		this.rightNode = rightNode;
 	}
 
 	public Node(int data, Node leftNode, Node rightNode) {
 		super();
 		this.data = data;
-		this.left = leftNode;
-		this.right = rightNode;
+		this.leftNode = leftNode;
+		this.rightNode = rightNode;
 	}
 
 	@Override
 	public String toString() {
-		return "Node [data=" + data + ", leftNode=" + left + ", rightNode=" + right + "]";
+		return "Node [data=" + data + ", leftNode=" + leftNode + ", rightNode=" + rightNode + "]";
 	}
 
 }
