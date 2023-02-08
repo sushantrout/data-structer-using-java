@@ -23,15 +23,15 @@ public class BSTHeightOfTreeTest {
 		traversh(root);
 		
 		int height = findHeiht(root);
-		System.out.println(height);
+		System.out.println("Height: " + height);
 	}
 
 	private static int findHeiht(Node root) {
 		if(root == null) {
 			return 0;
 		} else {
-			int findHeiht = findHeiht(root.leftNode);
-			int findHeihtRight = findHeiht(root.rightNode);
+			int findHeiht = findHeiht(root.left);
+			int findHeihtRight = findHeiht(root.right);
 			return (findHeiht > findHeihtRight? findHeiht : findHeihtRight) + 1;
 		}
 	}
@@ -40,9 +40,9 @@ public class BSTHeightOfTreeTest {
 		if(root == null) {
 			return;
 		}
-		traversh(root.leftNode);
+		traversh(root.left);
 		System.out.println(root.getData());
-		traversh(root.rightNode);
+		traversh(root.right);
 	}
 
 	public Node insert(Node node, int val) {
@@ -51,9 +51,9 @@ public class BSTHeightOfTreeTest {
 		}
 
 		if (val < node.data) {
-			node.leftNode = insert(node.leftNode, val);
+			node.left = insert(node.left, val);
 		} else if ((val > node.data)) {
-			node.rightNode = insert(node.rightNode, val);
+			node.right = insert(node.right, val);
 		}
 
 		return node;

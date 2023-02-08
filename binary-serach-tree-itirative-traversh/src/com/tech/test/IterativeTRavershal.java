@@ -6,11 +6,11 @@ import java.util.Stack;
 
 import com.tech.model.Node;
 
-public class PostOrderTest {
+public class IterativeTRavershal {
 
 	public static void main(String[] args) {
 
-		PostOrderTest a = new PostOrderTest();
+		IterativeTRavershal a = new IterativeTRavershal();
 		Node root = null;
 
 		root = a.insert(root, 8);
